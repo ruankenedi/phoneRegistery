@@ -6,21 +6,32 @@
           <q-icon name="assignment" />
           <q-popover ref="popover1">
             <q-list link separator class="scroll" style="min-width: 150px" >
-
-                <q-btn v-if="selected" @click="inputCountry">
-                <img src="../assets/flags/4x3/br.svg" v-if="selected" @click="inputCountry">
+              <q-btn @click="inputCountry">
+                <img src="../assets/flags/4x3/br.svg" >
                 <aside style="margin-left: 20px;">Brasil</aside>
                   <sub style="margin-left: 20px; margin-top: 2px;">+55</sub>
-                  </q-btn>
-                  <q-field v-else>
-                    <q-input></q-input>
-                  </q-field>
+              </q-btn><br>
+              <q-btn @click="inputCountry">
+                <img src="../assets/flags/4x3/ad.svg" >
+                <aside style="margin-left: 20px;">Andorra</aside>
+                  <sub style="margin-left: 20px; margin-top: 2px;">+1</sub>
+              </q-btn><br>
+              <q-btn @click="inputCountry">
+                <img src="../assets/flags/4x3/ar.svg" >
+                <aside style="margin-left: 20px;">Argentina</aside>
+                  <sub style="margin-left: 20px; margin-top: 2px;">+46</sub>
+              </q-btn>
             </q-list>
           </q-popover>
         </q-btn>
+        <q-field v-if="selected">
+                  <q-input type="number" :prefix="+55"/>
+                </q-field>
       </div>
     </div>
   </div>
+
+
 </template>
 
 <script>
@@ -62,12 +73,13 @@ export default {
     return {
       anchorOrigin: {vertical: 'bottom', horizontal: 'left'},
       selfOrigin: {vertical: 'top', horizontal: 'left'},
-      selected: true
+      selected: false
     }
   },
   methods: {
     inputCountry() {
-      this.selected = true;
+      this.selected = !this.selected;
+      toggle();
     }
   },
   computed: {
