@@ -332,7 +332,7 @@ export default {
        done(filter(terms, {field, list}))
     },
     // inputCountry() {
-    //   return this.countries.map((stamp) => {
+    //   return this.countri es.map((stamp) => {
     //       return {
     //         label: country.name
     //       }
