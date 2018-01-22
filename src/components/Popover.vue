@@ -1,22 +1,22 @@
 <template>
   <div class="layout-padding row justify-center">
-    <div style="width: 500px; max-width: 90vw;">
+    <div>
       <div>
         <q-btn color="primary" >
           <q-icon name="assignment" />
           <q-popover ref="popover1">
             <q-list link separator class="scroll" style="min-width: 150px" >
-              <q-btn @click="inputCountry">
+              <q-btn @click="inputCountry" standard flat>
                 <img src="../assets/flags/4x3/br.svg" >
                 <aside style="margin-left: 20px;">Brasil</aside>
                   <sub style="margin-left: 20px; margin-top: 2px;">+55</sub>
               </q-btn><br>
-              <q-btn @click="inputCountry">
+              <q-btn @click="inputCountry" standard flat>
                 <img src="../assets/flags/4x3/ad.svg" >
                 <aside style="margin-left: 20px;">Andorra</aside>
                   <sub style="margin-left: 20px; margin-top: 2px;">+1</sub>
               </q-btn><br>
-              <q-btn @click="inputCountry">
+              <q-btn @click="inputCountry" standard flat>
                 <img src="../assets/flags/4x3/ar.svg" >
                 <aside style="margin-left: 20px;">Argentina</aside>
                   <sub style="margin-left: 20px; margin-top: 2px;">+46</sub>
@@ -24,9 +24,9 @@
             </q-list>
           </q-popover>
         </q-btn>
-        <q-field v-if="selected">
-                  <q-input type="number" :prefix="+55"/>
-                </q-field>
+           <q-field v-if="selected">
+                    <q-input type="number" :prefix="+55"/>
+                  </q-field>
       </div>
     </div>
   </div>
@@ -53,6 +53,7 @@ import {
   QField
 } from 'quasar'
 export default {
+  name: 's-popover',
   components: {
     QInput,
     QBtn,

@@ -1,11 +1,8 @@
-
 <template>
-  <div style="width: 200px; max-width: 90vw; margin-left: 15px;">
-
-    <q-input color="amber" v-model="terms" placeholder="Country-Code">
+  <div style="width: 110px; max-width: 90vw; margin-left: 15px;">
+    <q-input color="amber" v-model="terms" float-label="Country-Code" prefix="+">
      <q-autocomplete v-if="selected" @click="inputCountry" @search="search" :min-characters="1" :static-data="{field: 'stamp', list: flags}"/>
-</q-input>
-
+    </q-input>
   </div>
 </template>
 
@@ -13,6 +10,7 @@
 import {  QInput, QSelect, QIcon, QAutocomplete, QSearch, filter, QBtn, QField } from 'quasar'
 
 export default {
+  name: 's-flags',
   components: {
     QBtn,
     QAutocomplete,
@@ -76,11 +74,6 @@ export default {
           shortName: 'AO',
           name: 'Angola'
         },
-        //não encontrado
-          //code: ,
-          //shortName: 'AQ',
-          //name: ''
-        //},
         {
           code: 54,
           shortName: 'AR',
@@ -111,11 +104,6 @@ export default {
           shortName: 'AW',
           name: 'Aruba'
         },
-         //{não encontrado
-          //code: 297,
-          //shortName: 'AX',
-          //name: ''
-        //},
         {
           code: 994,
           shortName: 'AZ',
@@ -141,11 +129,6 @@ export default {
           shortName: 'BE',
           name: 'Bélgica'
         },
-        //{
-          //code: 297,
-          //shortName: 'BF',
-          //name: ''
-        //},
         {
           code: 359,
           shortName: 'BG',
@@ -166,11 +149,6 @@ export default {
           shortName: 'BJ',
           name: 'Benin'
         },
-        //{FRANÇA ESTRANHA
-        //  code: 297,
-         // shortName: 'BL',
-         // name: ''
-        //},
         {
           code: 1,
           shortName: 'BM',
@@ -201,11 +179,6 @@ export default {
           shortName: 'BT',
           name: 'Butão'
         },
-         //{mudar, shortName errado
-          //code: 47,
-         // shortName: 'BV',
-        //  name: 'Noruega'
-      //  },
         {
           code: 267,
           shortName: 'BW',
@@ -226,11 +199,6 @@ export default {
           shortName: 'CA',
           name: 'Canadá'
         },
-        //{não econtrado
-         // code: 297,
-         // shortName: 'CC',
-         // name: ''
-        //},
         {
           code: 243,
           shortName: 'CD',
@@ -286,11 +254,6 @@ export default {
           shortName: 'CW',
           name: 'Curaçao'
         },
-        //{não encontrado
-          //code: 236,
-          //shortName: 'CX',
-         // name: ''
-        //},
         {
           code: 357,
           shortName: 'CY',
@@ -321,8 +284,6 @@ export default {
           shortName: 'EQ',
           name: 'Equador'
         },
-
-      //Daqui para baixo estão os countries certo, porém, não estão em ordem
         {
           code: 237,
           shortName: 'RC',
@@ -345,7 +306,7 @@ export default {
         },
 
         {
-          code: 297,
+          code: +297,
           shortName: 'HL',
           name: 'Holanda'
         },
@@ -361,7 +322,7 @@ export default {
           avatar: require(`../assets/flags/4x3/${country.shortName.toLowerCase()}.svg`),
           label: country.name,
           value: country.shortName,
-          stamp: `+${country.code}`
+          stamp: `${country.code}`
         };
       })
     }
@@ -370,9 +331,13 @@ export default {
     search (terms, done) {
        done(filter(terms, {field, list}))
     },
-    inputCountry() {
-      this.selected = false;
-    },
+    // inputCountry() {
+    //   return this.countries.map((stamp) => {
+    //       return {
+    //         label: country.name
+    //       }
+    //   })
+    // }
   }
 }
 </script>

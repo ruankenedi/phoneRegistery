@@ -1,10 +1,18 @@
 <template>
   <div class="layout-padding row justify-center">
-      <q-input id="phone" float-label="Phone" style="width: 215px;"/>
-    <div style="width: 215px; max-width: 90vw; margin-left: 15px;">
-       <q-input id="label" color="amber" v-model="terms" float-label="Label">
-          <q-autocomplete @search="search" :min-characters="1" @selected="selected" :static-data="{field: 'value', list: label}"/>
-       </q-input>
+    <div style="display: flex;">
+
+      <div style="display: flex; margin-top: 25px; margin-left: -40px;">
+           <s-flags></s-flags>
+        <div>
+          <q-input float-label="Phone" style="width: 215px; margin-left: 10px;"/>
+        </div>
+        <div style="width: 215px; max-width: 90vw; margin-left: 10px;">
+          <q-input id="label" color="primaryy" v-model="terms" float-label="Label">
+              <q-autocomplete @search="search" :min-characters="1" @selected="selected" :static-data="{field: 'value', list: label}"/>
+          </q-input>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +29,7 @@ import {
   QSelect,
   QIcon
 } from 'quasar'
+import SFlags from './Flags.vue'
 
 export default {
   name: 's-phone',
@@ -29,7 +38,8 @@ export default {
     QSearch,
     QInput,
     QSelect,
-    QIcon
+    QIcon,
+    SFlags
   },
   props: {
     customLabel: {
